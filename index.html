@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Web: Aplicaciones Matemáticas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#seccionFibo" id="btnNavFibo" class="active" onclick="cambiarSeccion('seccionFibo')">🌿 1. Crecimiento Fibonacci</a>
+        <a href="#seccionPrimos" id="btnNavPrimos" onclick="cambiarSeccion('seccionPrimos')">🔒 2. Seguridad Primos</a>
+        <a href="#seccionCombinado" id="btnNavCombinado" onclick="cambiarSeccion('seccionCombinado')">⚡ 3. Sistema Combinado</a>
+    </nav>
+
+    <header class="main-header">
+        <h1>Modelos Matemáticos Interactivos</h1>
+        <p class="autor">Estudiante: Juan Mauricio Laura Ichuta</p>
+    </header>
+
+    <main class="container">
+
+        <section id="seccionFibo" class="modulo-ejercicio fibo-theme">
+            <div class="card header-tema">
+                <h2>🌿 Sucesión de Fibonacci en la Naturaleza</h2>
+            </div>
+            
+            <div class="card bg-adornado">
+                <h3>Contexto en el Mundo Real</h3>
+                <p>En biología, la serie de Fibonacci modela dinámicas naturales como la disposición de las hojas en una planta (filotaxis), la espiral de los girasoles o el crecimiento óptimo de poblaciones de especies, maximizando la captura de luz y recursos.</p>
+            </div>
+
+            <div class="card algoritmo-card">
+                <h3>Explicación del Algoritmo</h3>
+                <p>El sistema solicita un límite numérico. Se inicializa un vector dinámico de control con los valores iniciales <code>[0, 1]</code>. Mediante un ciclo repetitivo hasta llegar al término deseado, el código suma matemáticamente los dos últimos elementos guardados en el vector y añade el resultado al final del array con <code>.push()</code>. Finalmente se renderiza el ecosistema numérico.</p>
+            </div>
+
+            <div class="card form-section">
+                <h3>Simulador de Crecimiento Natural</h3>
+                <form id="formFibo" onsubmit="event.preventDefault(); calcularSoloFibonacci();">
+                    <div class="form-group">
+                        <label for="cantFibo">Términos biológicos a generar:</label>
+                        <input type="number" id="cantFibo" min="1" max="40" placeholder="Ej. 8" required>
+                    </div>
+                    <button type="submit">Iniciar Simulación</button>
+                </form>
+            </div>
+
+            <div class="card result-section">
+                <h3>Resultados de la Muestra</h3>
+                <div id="resultadoFibo">
+                    <div class="bloque-ejemplo">
+                        <h4>💡 Ejemplo de Uso del Simulador:</h4>
+                        <p>Si introduces la cantidad de <strong>6 términos</strong>, el algoritmo procesará el vector biológico generando los siguientes niveles de crecimiento:</p>
+                        <div class="lista-horizontal guia-ejemplo">
+                            <span class="numero-badge">0</span>
+                            <span class="numero-badge">1</span>
+                            <span class="numero-badge">1</span>
+                            <span class="numero-badge">2</span>
+                            <span class="numero-badge">3</span>
+                            <span class="numero-badge">5</span>
+                        </div>
+                        <small>👇 Prueba ingresando tus propios datos en el formulario de arriba para ver una nueva muestra en tiempo real.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccionPrimos" class="modulo-ejercicio primos-theme oculto">
+            <div class="card header-tema">
+                <h2>🔒 Seguridad Informática y Criptografía</h2>
+            </div>
+
+            <div class="card bg-adornado">
+                <h3>Contexto en el Mundo Real</h3>
+                <p>Los números primos componen la estructura de los algoritmos de clave pública como el RSA. Su naturaleza indivisible permite cifrar credenciales informáticas y proteger firmas digitales de transacciones en redes bancarias globales.</p>
+            </div>
+
+            <div class="card algoritmo-card">
+                <h3>Explicación del Algoritmo</h3>
+                <p>Se captura un código y se transfiere a un analizador. Mediante un ciclo de iteración exacta desde 1 hasta el número ingresado, se evalúa el residuo algebraico (<code>%</code>). Un contador interno rastrea las divisiones exactas. Si al finalizar el recorrido el contador reporta estrictamente dos divisores, el sistema valida el código de acceso como primo.</p>
+            </div>
+
+            <div class="card form-section">
+                <h3>Terminal de Validación de Claves</h3>
+                <form id="formPrimos" onsubmit="event.preventDefault(); verificarSoloPrimo();">
+                    <div class="form-group">
+                        <label for="numPrimo">Ingrese token o código a testear:</label>
+                        <input type="number" id="numPrimo" min="1" placeholder="Ej. 17" required>
+                    </div>
+                    <button type="submit">>_ EJECUTAR DIAGNÓSTICO</button>
+                </form>
+            </div>
+
+            <div class="card result-section">
+                <h3>Consola de Salida</h3>
+                <div id="resultadoPrimo">
+                    <div class="bloque-ejemplo">
+                        <h4>💡 Ejemplo de Diagnóstico de Token:</h4>
+                        <p>Al evaluar credenciales en la terminal de seguridad:</p>
+                        <div class="alerta-resultado exito guia-ejemplo" style="margin: 10px 0;">
+                            <strong>[STATUS: VALIDADO]</strong> El número <strong>13</strong> es un NÚMERO PRIMO (solo divisible entre 1 y 13). Acceso Autorizado.
+                        </div>
+                        <div class="alerta-resultado peligro" style="margin: 5px 0 10px 0;">
+                            <strong>[STATUS: RECHAZADO]</strong> El número <strong>12</strong> NO es primo (tiene como divisores 1, 2, 3, 4, 6 y 12).
+                        </div>
+                        <small>👇 Ingresa un token numérico en la consola superior para iniciar un escaneo criptográfico real.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccionCombinado" class="modulo-ejercicio combinado-theme oculto">
+            <div class="card header-tema">
+                <h2>⚡ Análisis Combinado de Seguridad Secuencial</h2>
+            </div>
+
+            <div class="card bg-adornado">
+                <h3>Contexto en el Mundo Real</h3>
+                <p>Este entorno unifica los dos conceptos lógicos creando tokens dinámicos secuenciales complejos. Para que una llave sea aprobada en este servidor avanzado, debe pertenecer a la cadena de Fibonacci y superar de forma síncrona el filtro de primalidad.</p>
+            </div>
+
+            <div class="card algoritmo-card">
+                <h3>Explicación del Algoritmo</h3>
+                <p>El algoritmo genera un array de datos cargado con la sucesión de Fibonacci. Tras configurar el vector, el software activa un bucle anidado que evalúa individualmente cada índice matemático. Los valores que aprueban el test de divisores únicos reciben inyecciones visuales LED resaltadas directamente en la interfaz.</p>
+            </div>
+
+            <div class="card form-section">
+                <h3>Consola Mixta de Fusión Tecnológica</h3>
+                <form id="formCombinado" onsubmit="event.preventDefault(); procesarCombinado();">
+                    <div class="form-group">
+                        <label for="cantCombinado">Cantidad de llaves a verificar:</label>
+                        <input type="number" id="cantCombinado" min="1" max="40" placeholder="Ej. 10" required>
+                    </div>
+                    <button type="submit">GENERAR MATRIZ FILTRADA</button>
+                </form>
+            </div>
+
+            <div class="card result-section">
+                <h3>Matriz de Resultados</h3>
+                <div id="resultadoCombinado">
+                    <div class="bloque-ejemplo">
+                        <h4>💡 Ejemplo de Fusión de Patrones Secuenciales:</h4>
+                        <p>Si solicitas evaluar <strong>5 llaves dinámicas</strong>, el analizador procesará el vector y detectará las coincidencias exactas en la matriz:</p>
+                        <div class="guia-ejemplo" style="margin-top: 10px;">
+                            <div class="resultado-item">Componente 1: <strong>0</strong></div>
+                            <div class="resultado-item primo">Componente 2: <strong>1</strong> <span class="badge-primo">Match Perfecto</span></div>
+                            <div class="resultado-item primo">Componente 3: <strong>1</strong> <span class="badge-primo">Match Perfecto</span></div>
+                            <div class="resultado-item primo">Componente 4: <strong>2</strong> <span class="badge-primo">Match Perfecto</span></div>
+                            <div class="resultado-item primo">Componente 5: <strong>3</strong> <span class="badge-primo">Match Perfecto</span></div>
+                        </div>
+                        <small>👇 Ingresa una cantidad en el panel superior para calcular y construir una matriz automatizada nueva.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="links">
+            <a href="https://github.com/tu-usuario/desafio-web-unico" target="_blank" id="linkGit">📂 Repositorio Oficial Git</a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

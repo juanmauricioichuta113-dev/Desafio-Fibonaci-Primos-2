@@ -1,0 +1,163 @@
+/* ================= VARIABLES DE COLORES PASTEL LED Y CONFIGURACIÓN ================= */
+:root {
+    --bg-app: #0b0f19;
+    --card-bg: #131a2c;
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    
+    /* Tonos LED Suaves Pastel */
+    --led-green: #a7f3d0;
+    --led-green-glow: rgba(167, 243, 208, 0.2);
+    --led-purple: #e9d5ff;
+    --led-purple-glow: rgba(233, 213, 255, 0.2);
+    --led-cyan: #cffaf2;
+    --led-cyan-glow: rgba(207, 250, 242, 0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    padding-bottom: 60px;
+    line-height: 1.5;
+}
+
+/* --- Barra de Navegación LED --- */
+.navbar {
+    background-color: #070a12;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #1e293b;
+}
+
+.navbar a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 18px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover { color: #ffffff; }
+
+.navbar a.active {
+    color: #ffffff;
+    background-color: #111827;
+    box-shadow: inset 0 -3px 0 0 #38bdf8;
+}
+
+/* --- Estructura Base --- */
+.container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+.main-header { text-align: center; margin-bottom: 35px; }
+.main-header h1 { font-size: 2rem; color: #ffffff; letter-spacing: -0.5px; }
+.autor { font-style: italic; color: var(--text-muted); margin-top: 5px; }
+
+.card {
+    background: var(--card-bg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+.card h3 { margin-bottom: 12px; font-size: 1.25rem; font-weight: 600; }
+.placeholder-text { color: var(--text-muted); font-style: italic; }
+
+/* --- Elementos de Entrada Globales --- */
+.form-group { display: flex; flex-direction: column; margin-bottom: 16px; }
+.form-group label { margin-bottom: 8px; font-weight: 500; }
+input[type="number"] { padding: 12px; background-color: #0f172a; border: 1px solid #334155; color: white; font-size: 1rem; width: 100%; outline: none; }
+button { border: none; padding: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; width: 100%; transition: all 0.2s ease; }
+
+.oculto { display: none !important; }
+
+/* ================= CONTENEDORES DE EJEMPLO ESTÁTICO (NUEVO) ================= */
+.bloque-ejemplo {
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 1px dashed #334155;
+    padding: 18px;
+    border-radius: 8px;
+}
+.bloque-ejemplo h4 {
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+}
+.bloque-ejemplo p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.bloque-ejemplo small {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+.guia-ejemplo { opacity: 0.70; }
+
+/* ================= DISEÑO INTEGRAL TEMÁTICO POR PROBLEMA ================= */
+
+/* --- 🌿 TEMA 1: FIBONACCI (Estilo Orgánico/Biológico) --- */
+.fibo-theme { border-radius: 24px; border: 2px solid #065f46; }
+.fibo-theme .card { border-radius: 16px; }
+.fibo-theme .header-tema { background: linear-gradient(135deg, #065f46, #10b981); color: #ffffff; }
+.fibo-theme h3, .fibo-theme h2 { color: #34d399; }
+.fibo-theme .algoritmo-card { border-left: 5px solid #059669; background: #065f4615; }
+.fibo-theme .bg-adornado::before { content: "🍃"; position: absolute; right: 15px; top: 15px; font-size: 2.5rem; opacity: 0.15; }
+.fibo-theme button { background-color: #10b981; color: #042f1a; border-radius: 30px; box-shadow: 0 0 12px var(--led-green-glow); }
+.fibo-theme button:hover { background-color: var(--led-green); box-shadow: 0 0 20px var(--led-green); }
+.fibo-theme .numero-badge { background: #065f4640; color: var(--led-green); border: 2px solid #10b981; padding: 12px 18px; border-radius: 20px 4px 20px 4px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 0 8px var(--led-green-glow); }
+.fibo-theme .bloque-ejemplo { border-color: rgba(167, 243, 208, 0.3); }
+.fibo-theme .bloque-ejemplo h4 { color: #34d399; }
+
+/* --- 🔒 TEMA 2: PRIMOS (Estilo Cyberpunk/Seguridad Terminal) --- */
+.primos-theme { border-radius: 0px; border: 1px solid #6b21a8; }
+.primos-theme .card { border-radius: 0px; border: 1px solid #1e293b; background-image: linear-gradient(#1a233a 1px, transparent 1px), linear-gradient(90deg, #1a233a 1px, transparent 1px); background-size: 20px 20px; }
+.primos-theme .header-tema { background: #581c87; border-bottom: 3px solid #c084fc; color: #f3e8ff; }
+.primos-theme h3, .primos-theme h2 { font-family: 'Courier New', Courier, monospace; color: #c084fc; }
+.primos-theme input[type="number"] { border-radius: 0px; border-color: #6b21a8; font-family: monospace; }
+.primos-theme .algoritmo-card { border-left: 4px solid #a855f7; background: #3b076430; }
+.primos-theme .bg-adornado::before { content: "[ENCRYPTED]"; position: absolute; right: 10px; bottom: 5px; font-family: monospace; font-size: 0.75rem; color: #a855f7; opacity: 0.3; }
+.primos-theme button { background: transparent; color: #c084fc; border: 1px solid #c084fc; font-family: monospace; box-shadow: 0 0 10px var(--led-purple-glow); }
+.primos-theme button:hover { background: #c084fc; color: #2e0854; box-shadow: 0 0 15px var(--led-purple); }
+.primos-theme .alerta-resultado { padding: 20px; font-family: monospace; text-align: left; border-left: 4px solid; margin: 10px 0; }
+.primos-theme .exito { background: #2e104e; color: #e9d5ff; border-color: #a855f7; box-shadow: 0 0 15px var(--led-purple-glow); }
+.primos-theme .peligro { background: #450a0a; color: #fca5a5; border-color: #ef4444; }
+.primos-theme .bloque-ejemplo { border-color: rgba(233, 213, 255, 0.25); border-radius: 0px; }
+.primos-theme .bloque-ejemplo h4 { color: #c084fc; font-family: monospace; }
+
+/* --- ⚡ TEMA 3: COMBINADO (Estilo Interfaz de Laboratorio Avanzado) --- */
+.combinado-theme { border-radius: 12px; border: 1px solid #0e7490; }
+.combinado-theme .card { border-radius: 8px; border: 1px solid #1e293b; }
+.combinado-theme .header-tema { background: linear-gradient(90deg, #164e63, #0891b2); color: white; box-shadow: 0 0 15px rgba(8, 145, 178, 0.3); }
+.combinado-theme h3, .combinado-theme h2 { color: #22d3ee; }
+.combinado-theme .algoritmo-card { border-left: 4px solid #06b6d4; background: #0891b215; }
+.combinado-theme button { background: linear-gradient(135deg, #0891b2, #14b8a6); color: #083344; border-radius: 6px; box-shadow: 0 0 10px rgba(34, 211, 238, 0.2); }
+.combinado-theme button:hover { transform: translateY(-1px); box-shadow: 0 0 18px #22d3ee; }
+.combinado-theme .resultado-item { padding: 12px; margin: 8px 0; border-left: 4px solid #334155; background: #0f172a; border-radius: 4px; transition: 0.3s; text-align: left; }
+.combinado-theme .resultado-item.primo { border-left-color: #22d3ee; background: #0891b215; box-shadow: inset 0 0 10px rgba(34, 211, 238, 0.05); }
+.combinado-theme .badge-primo { background: #22d3ee; color: #083344; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; font-weight: bold; margin-left: 14px; box-shadow: 0 0 10px var(--led-cyan); }
+.combinado-theme .bloque-ejemplo { border-color: rgba(34, 211, 238, 0.25); }
+.combinado-theme .bloque-ejemplo h4 { color: #22d3ee; }
+
+/* --- Footer --- */
+.lista-horizontal { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+.main-footer { text-align: center; margin-top: 50px; padding-top: 25px; border-top: 1px solid #1e293b; }
+.main-footer a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+.main-footer a:hover { color: #ffffff; }
+
+/* --- Menú Responsivo Móvil --- */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; text-align: center; }
+    .navbar a { border-bottom: 1px solid #1e293b; padding: 14px; }
+    .navbar a.active { border-bottom: none; background-color: #1e293b; }
+    .container { margin: 20px auto; padding: 0 10px; }
+}
